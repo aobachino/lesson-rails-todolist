@@ -12,5 +12,16 @@
   .field
     = f.label :status
     = f.text_field :status
+  .field
+    = f.label :status_id
+    = f.text_field :status_id
+    %br
+    %select{ name: :status_id }
+      - @status_all = Status.all
+      %option{:disabled => "disabled", :selected => "selected", :value => ""}
+        選んでください
+      - @status_all.each.with_index(1) do |status, i|
+        %option{ value: i }
+          = status.name
   .actions
     = f.submit 'Save'
