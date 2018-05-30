@@ -5,6 +5,7 @@
     %tr
       %th Name
       %th Status
+      %th User
       %th
       %th
       %th
@@ -13,10 +14,12 @@
     - @tasks.each do |task|
       %tr
         %td= task.name
-        %td= task.status
+        %td= Status.find(task.status_id).name
+        %td= User.find(task.user_id).email
         %td= link_to 'Show', task
-        %td= link_to 'Edit', edit_task_path(task)
-        %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
+        - if user_signed_in? && (current_user.id == task.user_id)
+          %td= link_to 'Edit', edit_task_path(task)
+          %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
