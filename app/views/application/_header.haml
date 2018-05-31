@@ -7,8 +7,9 @@
       %ul
         - if user_signed_in?
           %li
-            ユーザー：
-            = current_user.email
+            [
+            = current_user.name
+            ]
         %li
           = link_to 'Home', root_path, class: "#{'active' if path == '/'}"
         - unless user_signed_in?
