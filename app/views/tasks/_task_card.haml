@@ -1,9 +1,7 @@
-.task-card
-  %label
-    = link_to 'タスク名', edit_task_path(task)
-  %span
-    = task.name
-  %label
-    ステータス
-  %span
-    = task.status
+.task-card.card
+  .card-body
+    %h5.card-title
+      = link_to "#{task.name}", edit_task_path(task)
+    %hr
+    %h6.card-subtitle
+      = task.status

@@ -3,6 +3,8 @@
   %li
     = link_to 'タスクを追加する', new_task_path
 %hr
-- if @my_tasks
-  - @my_tasks.each do |task|
-    = render 'tasks/task_card', task: task
+.row
+  - if @my_tasks
+    - @my_tasks.each do |task|
+      .col-sm-12.col-md-6.col-lg-4
+        = render 'tasks/task_card', task: task

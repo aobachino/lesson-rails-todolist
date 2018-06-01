@@ -11,13 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
  */
+@import "template/_valiables";
 @import "template/_base";
 @import "template/_common";
 @import "template/_component";
 @import "template/_layout";
 @import "template/_utility";
-@import "template/_valiables";
-@import "scaffolds";
-@import "tasks";
-@import "toppages";
+@import "pages/tasks";
+@import "pages/toppages";
+
+// gem
 @import "bootstrap";
