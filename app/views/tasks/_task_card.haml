@@ -3,7 +3,7 @@
     = link_to task.name, edit_task_path(task)
   %label
     ステータス:
-    = Status.find(task.status_id).name
+    = statuses.find(task.status_id).name
   %span
     - if current_user.id == task.user_id
       = link_to 'Edit', edit_task_path(task)

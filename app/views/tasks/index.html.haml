@@ -15,8 +15,8 @@
     - @tasks.each do |task|
       %tr
         %td= task.name
-        %td= Status.find(task.status_id).name
-        %td= User.find(task.user_id).name
+        %td= @statuses.find(task.status_id).name
+        %td= @users.find(task.user_id).name
         %td= task.updated_at
         %td= link_to 'Show', task
         - if user_signed_in? && (current_user.id == task.user_id)
