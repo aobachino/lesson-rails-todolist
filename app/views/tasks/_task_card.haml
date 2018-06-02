@@ -1,9 +1,10 @@
 .task-card
   %label
-    = link_to 'タスク名', edit_task_path(task)
-  %span
-    = task.name
+    = link_to task.name, edit_task_path(task)
   %label
-    ステータス
+    ステータス:
+    = statuses.find(task.status_id).name
   %span
-    = task.status
+    - if current_user.id == task.user_id
+      = link_to 'Edit', edit_task_path(task)
+      = link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }

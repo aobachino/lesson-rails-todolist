@@ -5,8 +5,8 @@
   = @task.name
 %p
   %b Status:
-  = @task.status
-
-= link_to 'Edit', edit_task_path(@task)
-\|
+  = @statuses.find(@task.status_id).name
+- if user_signed_in? && (current_user.id == @task.user_id)
+  = link_to 'Edit', edit_task_path(@task)
+  \|
 = link_to 'Back', tasks_path

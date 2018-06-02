@@ -8,8 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '7f160aa6ee0c439010c2a917400ec5ee2c3aaffe8f544b6a16db123bd634305a02a6d4b0f5dcbd652e8b828b5e0621052382585f5f5e34b36b8605cc14669b7a'
-  
+  # config.secret_key = '558cf1b2bd285094101c532f958e6e1b4d5de2ee73361a4e8d28a9ded7afabc0bcfe285e5920c26c5073aab2c30c4363f83bd6c72279a80e00f30185ffffdd7d'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'f2a4792c353225856fdaf1d424eecb074ed2eb10c582e9d4f7d6e43ded7443254590867033205cf4569c69caaa96469e0e0186a2889a7a2c7142cd524f76cc87'
+  # config.pepper = '4591911f3a71a637a45d8090595d8e6474f82080aa0ca0252cd80fc7900ca8491a83eb49000263156e62fac3560f427169d7473f80d3a0edbe1fb7b36df36431'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -230,6 +230,7 @@ Devise.setup do |config|
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -251,7 +252,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
