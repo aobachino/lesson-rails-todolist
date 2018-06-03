@@ -1,16 +1,23 @@
-= form_for @task do |f|
-  - if @task.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      %ul
-        - @task.errors.full_messages.each do |message|
-          %li= message
+.form--task
+  = form_for @task do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @task.errors.full_messages.each do |message|
+            %li= message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :status_id
-    = f.collection_select :status_id, statuses, :id, :name, :selected => @task.status_id
-  .actions
-    = f.submit 'Save'
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :status_id
+      = f.collection_select :status_id, statuses, :id, :name, :selected => @task.status_id
+    .actions
+      = f.submit 'Save'
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      = f.label :status
+      = f.text_field :status, class: 'form-control'
+      = f.submit 'Save', class: 'btn btn-primary'

@@ -1,23 +1,27 @@
 - path = request.path
 %header#app--header
-  .title
-    %h1.site-title
-      TODO-LIST
-    %nav
-      %ul
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    %a.navbar-brand{href: "#{root_path}"}
+      TODO
+    %button.navbar-toggler{ type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbarNavAltMarkup',
+                            'aria-controls': 'navbarNavAltMarkup', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation'}
+      %span.navbar-toggler-icon
+    .collapse.navbar-collapse{id: 'navbarNavAltMarkup' }
+      - #mr-autoで左寄せ、ml-autoで右寄せ
+      %ul.navbar-nav.ml-auto
         - if user_signed_in?
-          %li
+          %li.nav-item
             [
             = current_user.name
             ]
-        %li
-          = link_to 'Home', root_path, class: "#{'active' if path == '/'}"
+        %li.nav-item
+          = link_to 'Home', root_path, class: "nav-link #{'active' if path == '/'}"
         - unless user_signed_in?
-          %li
-            = link_to 'SignUp', new_user_registration_path, class: "#{'active' if path == '/users/sign_up'}"
-          %li
-            = link_to 'Login', new_user_session_path, class: "#{'active' if path == '/users/sign_in'}"
+          %li.nav-item
+            = link_to 'SignUp', new_user_registration_path, class: "nav-link #{'active' if path == '/users/sign_up'}"
+          %li.nav-item
+            = link_to 'Login', new_user_session_path, class: "nav-link #{'active' if path == '/users/sign_in'}"
         - if user_signed_in?
-          %li
-            = link_to 'Logout', destroy_user_session_path
+          %li.nav-item
+            = link_to 'Logout', destroy_user_session_path, class: 'nav-link'
   %hr

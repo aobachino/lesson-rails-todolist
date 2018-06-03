@@ -1,10 +1,12 @@
-.task-card
-  %label
-    = link_to task.name, edit_task_path(task)
-  %label
-    ステータス:
-    = statuses.find(task.status_id).name
-  %span
-    - if current_user.id == task.user_id
-      = link_to 'Edit', edit_task_path(task)
-      = link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
+.task-card.card
+  .card-body
+    %h5.card-title
+      = link_to task.name, edit_task_path(task)
+    %h6.card-subtitle
+      ステータス:
+      = statuses.find(task.status_id).name
+    %hr
+    %span
+      - if current_user.id == task.user_id
+        = link_to 'Edit', edit_task_path(task)
+        = link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
