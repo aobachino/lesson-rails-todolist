@@ -7,17 +7,12 @@
           - @task.errors.full_messages.each do |message|
             %li= message
 
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :status_id
-      = f.collection_select :status_id, statuses, :id, :name, :selected => @task.status_id
-    .actions
-      = f.submit 'Save'
     .form-group
       = f.label :name
       = f.text_field :name, class: 'form-control'
-      = f.label :status
-      = f.text_field :status, class: 'form-control'
-      = f.submit 'Save', class: 'btn btn-primary'
+    .form-group
+      = f.label :status_id
+      = f.collection_select :status_id, statuses, :id, :name, {prompt: ""}, {class: 'custom-select', selected: @task.status_id}
+    .form-group
+      .actions
+        = f.submit 'Save', class: 'btn btn-outline-secondary'
