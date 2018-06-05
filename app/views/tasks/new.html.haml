@@ -1,6 +1,6 @@
-%h1 New task
+%h2 タスク新規作成
 -# %button.btn.btn-lg.btn-danger{data: {content: "And here's some amazing content. It's very engaging. Right?", toggle: "popover"}, title: "Popover title", type: "button"} Click to toggle popover
 
-= render 'form', statuses: @statuses
+= render 'form', statuses: @statuses, categories: @categories
 
 = link_to 'Back', tasks_path
