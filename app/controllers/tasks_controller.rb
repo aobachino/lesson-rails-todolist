@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:index, :show]
   before_action :set_statuses, only: [:index, :show, :create, :new, :edit]
-  before_action :set_statuses, only: [:index, :show, :create, :new, :edit]
+  before_action :set_categories, only: [:index, :show, :create, :new, :edit]
 
   # GET /tasks
   # GET /tasks.json

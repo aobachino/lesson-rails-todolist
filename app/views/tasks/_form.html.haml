@@ -15,11 +15,10 @@
       = f.collection_select :status_id, statuses, :id, :name, {prompt: ""}, {class: 'custom-select', selected: @task.status_id}
     .form-group
       = f.label 'カテゴリー'
-      -# = f.collection_select :category_id, categories, :id, :name, {prompt: ""}, {class: 'custom-select', selected: @task.category_id}
-      = f.collection_select :category_id, Category.all, :id, :name, {prompt: ""}, {class: 'custom-select', selected: @task.category_id}
+      = f.collection_select :category_id, categories, :id, :name, {prompt: ""}, {class: 'custom-select', selected: @task.category_id}
     .form-group
       = f.label '期日（オプション）'
       = f.text_field :deadline, class: 'form-control'
     .form-group
       .actions
-        = f.submit 'Save', class: 'btn btn-secondary'
+        = f.submit '保存', class: 'btn btn-secondary'
