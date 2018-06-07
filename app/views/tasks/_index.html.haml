@@ -1,0 +1,14 @@
+- @tasks.each do |task|
+  %tr
+    %td= link_to task.name, task
+    %td= @statuses.find(task.status_id).name
+    %td= @categories.find(task.category_id).name
+    %td= @users.find(task.user_id).name
+    %td= task.updated_at
+    - if user_signed_in? && (current_user.id == task.user_id)
+      %td.center-block
+        .btn-group{"aria-label" => "operation-btn-g", :role => "group"}
+          = link_to 'Edit', edit_task_path(task), remote: true, class: 'btn btn-outline-success'
+          = link_to 'Delete', task, method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure?' }
+    - else
+      %td
