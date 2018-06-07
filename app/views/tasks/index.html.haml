@@ -1,8 +1,7 @@
 %h3 All User Tasks
 
-= link_to 'New Task', new_task_path, class: 'btn btn-secondary'
+= link_to 'New Task', new_task_path, remote: true, class: 'btn btn-secondary'
 %br
-#task-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
 
 %table.table.table-bordered.table-hover
   %thead.thead-light
@@ -16,3 +15,5 @@
 
   %tbody.task-index
     = render "index", tasks: @tasks, users: @users, categories: @categories, statuses: @statuses
+
+#task-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}

@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_tasks, only: [:index, :create, :edit]
-  before_action :set_users, only: [:index, :show]
-  before_action :set_statuses, only: [:index, :show, :create, :new, :edit]
-  before_action :set_categories, only: [:index, :show, :create, :new, :edit]
+  before_action :set_tasks, only: [:index, :edit, :create, :update, :new]
+  before_action :set_users, only: [:index, :edit, :create, :update, :new]
+  before_action :set_statuses, only: [:index, :edit, :create, :update, :new, :show]
+  before_action :set_categories, only: [:index, :edit, :create, :update, :new, :show]
+
   # GET /tasks
   # GET /tasks.json
   def index
@@ -52,7 +53,8 @@ class TasksController < ApplicationController
     # Original code
     # respond_to do |format|
     #   if @task.update(task_params)
-    #     format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+    #     @task.update(task_params)
+    #     # format.html { redirect_to @task, notice: 'Task was successfully updated.' }
     #     format.json { render :show, status: :ok, location: @task }
     #   else
     #     format.html { render :edit }

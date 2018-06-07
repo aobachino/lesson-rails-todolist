@@ -1,28 +1,28 @@
 .modal-dialog.modal-dialog-centered
-  .form--task.modal-content
+  .modal-content
     .modal-header
       %h3
         = header_str
     = form_for task, remote: true do |f|
-      - if task.errors.any?
-        #error_explanation
-          %h2= "#{pluralize(task.errors.count, "error")} prohibited this task from being saved:"
-          %ul
-            - task.errors.full_messages.each do |message|
-              %li= message
+      .modal-body
+        - if task.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(task.errors.count, "error")} prohibited this task from being saved:"
+            %ul
+              - task.errors.full_messages.each do |message|
+                %li= message
 
-      .form-group
-        = f.label 'タイトル'
-        = f.text_field :name, class: 'form-control'
-      .form-group
-        = f.label 'ステータス'
-        = f.collection_select :status_id, statuses, :id, :name, {prompt: ""}, {class: 'custom-select', selected: task.status_id}
-      .form-group
-        = f.label 'カテゴリー'
-        = f.collection_select :category_id, categories, :id, :name, {prompt: ""}, {class: 'custom-select', selected: task.category_id}
-      .form-group
-        = f.label '期日（オプション）'
-        = f.text_field :deadline, class: 'form-control'
-      .form-group
+        .form-group
+          = f.label 'タイトル'
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label 'ステータス'
+          = f.collection_select :status_id, statuses, :id, :name, {prompt: ""}, {class: 'custom-select', selected: task.status_id}
+        .form-group
+          = f.label 'カテゴリー'
+          = f.collection_select :category_id, categories, :id, :name, {prompt: ""}, {class: 'custom-select', selected: task.category_id}
+        .form-group
+      .modal-footer
         .actions
-          = f.submit '保存', class: 'btn btn-secondary'
+          = f.submit class: 'btn btn-outline-primary'
+          = link_to "Cancel", "#", class: "btn btn-outline-danger", data: {dismiss: "modal"}
