@@ -1,28 +1,30 @@
-%h1 Listing tasks
-
-%table
-  %thead
+%h3 All User Tasks
+%table.table.table-bordered.table-hover
+  %thead.thead-light
     %tr
-      %th Name
-      %th Status
-      %th User
-      %th Time
-      %th
-      %th
-      %th
+      %th{scope: "col"} ID
+      %th{scope: "col"} タスク
+      %th{scope: "col"} ステータス
+      %th{scope: "col"} ユーザー
+      %th{scope: "col"} 更新日時
+      %th{scope: "col"}
 
   %tbody
     - @tasks.each do |task|
       %tr
-        %td= task.name
+        %td= task.id
+        %td= link_to task.name, task
         %td= @statuses.find(task.status_id).name
         %td= @users.find(task.user_id).name
         %td= task.updated_at
-        %td= link_to 'Show', task
         - if user_signed_in? && (current_user.id == task.user_id)
-          %td= link_to 'Edit', edit_task_path(task)
-          %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
+          %td.center-block
+            .btn-group{"aria-label" => "操作ボタン", :role => "group"}
+              = link_to '編集', edit_task_path(task), class: 'btn btn-outline-success'
+              = link_to '削除', task, method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure?' }
+        - else
+          %td
 
-%br
+-# %br
 
-= link_to 'New Task', new_task_path
+= link_to '新規作成', new_task_path, class: 'btn btn-secondary'
