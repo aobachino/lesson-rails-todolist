@@ -1,5 +1,5 @@
 %br
-%h4 All User Tasks
+%h4.text-white All User Tasks
 %br
 
 %table#all-task-table.table.table-bordered.table-hover.table-light
@@ -13,3 +13,11 @@
 
   %tbody
     = render "index", tasks: @tasks, users: @users, categories: @categories, statuses: @statuses
+
+:javascript
+  $(document).ready(function() {
+    $('#all-task-table').DataTable({
+      "bJQueryUI": true,
+      // "sPaginationType": "full_numbers"
+    });
+  });
