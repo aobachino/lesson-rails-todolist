@@ -10,3 +10,30 @@
     margin-bottom: 5px;
   }
 }
+
+table thead th{
+  position: relative;
+  background-image: none !important;
+
+  &.sorting:after,
+  &.sorting_asc:after,
+  &.sorting_desc:after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: block;
+    font-family: FontAwesome;
+  }
+
+  &.sorting:after {
+    content: '\f0dc'; // fa-sort
+    font-size: 0.8em;
+    padding-top: 0.12em;
+  }
+  &.sorting_asc:after {
+    content: '\f0de'; // fa-sort-asc
+  }
+  &.sorting_desc:after {
+    content: '\f0dd'; // fa-sort-desc
+  }
+}
