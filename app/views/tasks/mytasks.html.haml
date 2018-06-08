@@ -1,0 +1,4 @@
+.row
+  - if @my_tasks
+    - @my_tasks.each do |task|
+      = render 'task_card', task: task, statuses: @statuses

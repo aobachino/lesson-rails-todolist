@@ -1,9 +1,9 @@
 %h3 All User Tasks
-
 = link_to 'New Task', new_task_path, remote: true, class: 'btn btn-secondary'
 %br
+%br
 
-%table.table.table-bordered.table-hover
+%table#all-task-table.table.table-bordered.table-hover
   %thead.thead-light
     %tr
       %th{scope: "col"} Task
