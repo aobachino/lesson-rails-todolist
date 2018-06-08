@@ -1,5 +1,7 @@
 %br
-= link_to 'Add Task', new_task_path, remote: true, class: 'btn btn-secondary'
+= link_to 'Add Task', new_task_path, remote: true, class: 'btn btn-info',
+  data:{toggle: "popover", trigger: "hover", placement: "right", delay: { "show": 500, "hide": 100},
+  content: "Add your task."}
 .row.task-index
   - if @my_tasks
     = render 'mytasks'

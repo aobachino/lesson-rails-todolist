@@ -9,6 +9,6 @@
       %hr
       %span
         - if current_user.id == task.user_id
-          = link_to 'Edit', edit_task_path(task), remote: true, class: 'btn btn-outline-success'
+          = link_to 'Edit', edit_task_path(task), remote: true, class: 'btn btn-outline-info'
           = link_to 'Del', task, method: :delete, data: { confirm: 'Are you sure?' },
-          class: "btn btn-outline-danger"
+            class: "btn btn-outline-danger"
