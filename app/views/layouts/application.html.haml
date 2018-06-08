@@ -8,5 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body#body--todolist
     = render 'header'
-    .container
-      = yield
+    .jumbotron.bg-image-night
+      .container
+        = yield
+    .jumbotron.bg-image-day

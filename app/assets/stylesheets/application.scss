@@ -25,3 +25,23 @@
 // datatables
 // @import "dataTables";
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
+
+.jumbotron {
+  padding-top: 0px;
+  margin: 0;
+}
+
+.bg-image-night {
+  background: url(mojave-night.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+  background-repeat: no-repeat;
+}
+.bg-image-day {
+  background: url(mojave-day.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 400px;
+  background-repeat: no-repeat;
+}

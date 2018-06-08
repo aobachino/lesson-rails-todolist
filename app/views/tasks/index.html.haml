@@ -1,9 +1,8 @@
-%h3 All User Tasks
-= link_to 'New Task', new_task_path, remote: true, class: 'btn btn-secondary'
 %br
+%h4 All User Tasks
 %br
 
-%table#all-task-table.table.table-bordered.table-hover
+%table#all-task-table.table.table-bordered.table-hover.table-light
   %thead.thead-light
     %tr
       %th{scope: "col"} Task
@@ -11,9 +10,6 @@
       %th{scope: "col"} Category
       %th{scope: "col"} User
       %th{scope: "col"} Update
-      %th{scope: "col"}
 
-  %tbody.task-index
+  %tbody
     = render "index", tasks: @tasks, users: @users, categories: @categories, statuses: @statuses
-
-#task-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}

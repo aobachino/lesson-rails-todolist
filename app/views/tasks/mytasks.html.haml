@@ -1,4 +1,9 @@
-.row
+%br
+= link_to 'Add Task', new_task_path, remote: true, class: 'btn btn-secondary'
+.row.task-index
   - if @my_tasks
-    - @my_tasks.each do |task|
-      = render 'task_card', task: task, statuses: @statuses
+    = render 'mytasks'
+    -# - @my_tasks.each do |task|
+    -#   = render 'task_card', task: task, statuses: @statuses, categories: @categories
+
+#task-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}

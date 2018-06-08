@@ -1,12 +1,11 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @task.name
+%p.font-weight-bold Task name:
+= @task.name
 %p
   %b Status:
   = @statuses.find(@task.status_id).name
 - if user_signed_in? && (current_user.id == @task.user_id)
   = link_to 'Edit', edit_task_path(@task)
   \|
-= link_to 'Back', tasks_path
+= link_to 'Back', :back

@@ -4,7 +4,7 @@
     .container
       .navbar-brand
         - if user_signed_in?
-          = link_to current_user.name + ' \'s Todo List', '/', class: "text-light"
+          = link_to current_user.name + ' \'s Tasks', 'mytasks', class: "text-light"
         - else
           = link_to 'Todo App', '/', class: "text-light"
       %button.navbar-toggler{ type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbarNavAltMarkup',
