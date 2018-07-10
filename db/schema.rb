@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531130839) do
+ActiveRecord::Schema.define(version: 20180607135122) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -24,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180531130839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "status_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["status_id"], name: "index_tasks_on_status_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
@@ -47,5 +55,6 @@ ActiveRecord::Schema.define(version: 20180531130839) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tasks", "categories"
   add_foreign_key "tasks", "statuses"
 end

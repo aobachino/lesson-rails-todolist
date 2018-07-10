@@ -1,28 +1,23 @@
-%h1 Listing tasks
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Status
-      %th User
-      %th Time
-      %th
-      %th
-      %th
-
-  %tbody
-    - @tasks.each do |task|
-      %tr
-        %td= task.name
-        %td= @statuses.find(task.status_id).name
-        %td= @users.find(task.user_id).name
-        %td= task.updated_at
-        %td= link_to 'Show', task
-        - if user_signed_in? && (current_user.id == task.user_id)
-          %td= link_to 'Edit', edit_task_path(task)
-          %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
-
+%br
+%h4.text-white All User Tasks
 %br
 
-= link_to 'New Task', new_task_path
+%table#all-task-table.table.table-bordered.table-hover.table-light
+  %thead.thead-light
+    %tr
+      %th{scope: "col"} Task
+      %th{scope: "col"} Status
+      %th{scope: "col"} Category
+      %th{scope: "col"} User
+      %th{scope: "col"} Update
+
+  %tbody
+    = render "index", tasks: @tasks, users: @users, categories: @categories, statuses: @statuses
+
+:javascript
+  $(document).ready(function() {
+    $('#all-task-table').DataTable({
+      "bJQueryUI": true,
+      // "sPaginationType": "full_numbers"
+    });
+  });

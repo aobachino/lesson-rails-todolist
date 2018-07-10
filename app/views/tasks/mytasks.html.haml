@@ -1,0 +1,11 @@
+%br
+= link_to 'Add Task', new_task_path, remote: true, class: 'btn btn-info',
+  data:{toggle: "popover", trigger: "hover", placement: "right", delay: { "show": 500, "hide": 100},
+  content: "Add your task."}
+.row.task-index
+  - if @my_tasks
+    = render 'mytasks'
+    -# - @my_tasks.each do |task|
+    -#   = render 'task_card', task: task, statuses: @statuses, categories: @categories
+
+#task-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}

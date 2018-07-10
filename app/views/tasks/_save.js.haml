@@ -1,0 +1,10 @@
+$("ul.errors").html("")
+- if @task.errors.any?
+  - @task.errors.full_messages.each do |message|
+    $("ul.errors").append($("
+    %li>
+    ").html("#{message.html_safe}"))
+- else
+  -# $(".task-index").html("#{escape_javascript(render 'index', tasks: @tasks, users: @users, categories: @categories, statuses: @statuses)}")
+  $(".task-index").html("#{escape_javascript(render 'mytasks')}")
+  $("#task-modal").modal("hide")
