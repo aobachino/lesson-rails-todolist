@@ -6,3 +6,7 @@
 - if @my_tasks
   - @my_tasks.each do |task|
     = render 'tasks/task_card', task: task
+- else @tasks
+  - @tasks.each do |task|
+    = render 'tasks/task_card', task: task
+    
